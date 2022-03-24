@@ -13,8 +13,8 @@ function App() {
             <Header />
             <Routes>
                 <Route path='/' element={<Film />} />
-                <Route path='/schedule' element={<Schedule />} />
-                <Route path='/seats' element={<Seats />} />
+                <Route path='/films/:filmId' element={<Schedule />} />
+                <Route path='/schedules/:scheduleId' element={<Seats />} />
                 <Route path='/finishedOrder' element={<FinishedOrder />} />
             </Routes>
         </BrowserRouter>
