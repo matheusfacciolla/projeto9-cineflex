@@ -14,7 +14,7 @@ function Footer({filmId, day, showTime}) {
         promise.catch(error => {
             console.log(error.response)
         })
-    }, [])
+    }, [filmId])
 
     return (
         <div className='footer'>

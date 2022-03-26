@@ -21,7 +21,7 @@ function Schedule() {
         promise.catch(error => {
             console.log(error.response)
         });
-    }, []);
+    }, [filmId]);
 
     return schedules.length > 0 ? (
         <main >
