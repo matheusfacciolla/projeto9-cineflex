@@ -2,9 +2,9 @@ import './style.css'
 
 function Header() {
     return (
-        <header>           
+        <div className='header'>           
             <h1>CINEFLEX</h1>            
-        </header>
+        </div>
     );
 }
 

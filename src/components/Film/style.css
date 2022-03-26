@@ -1,6 +1,7 @@
 main {
     display: flex;
     flex-direction: column;
+    margin-top: 67px;
 }
 
 main h2 {
@@ -20,7 +21,7 @@ main h2 {
     background: #E5E5E5;
 }
 
-.Films {
+.films {
     width: 375px;
     height: 100%;
     display: flex;
@@ -29,7 +30,7 @@ main h2 {
     background: #E5E5E5;
 }
 
-.Film {
+.film {
     width: 145px;
     height: 209px; 
     display: flex;

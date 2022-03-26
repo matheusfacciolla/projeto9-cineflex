@@ -5,4 +5,7 @@
 body {
     font-family: 'Recursive', sans-serif;
     font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    background: #E5E5E5;
 }

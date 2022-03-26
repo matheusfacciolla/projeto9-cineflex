@@ -1,12 +1,30 @@
-.Schedule {
+.main {
+    width: 375px;
+    height: 100%;
+    background: #E5E5E5;
+    margin-bottom: 117px;
+}
+
+.date-schedule {
+    margin-left: 23px;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
-    font-size: 24px;
-    line-height: 28px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.04em;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.02em;
     color: #293845;
+}
+
+.schedule {
+    width: 83px;
+    height: 43px;
+    margin-right: 8px;
+    margin-top: 22px;
+    margin-bottom: 22px;
+    color: #FFFFFF;
+    background: #E8833A;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
 }

@@ -1,12 +1,131 @@
-.Seats {
+main {
+    width: 375px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seats {
+    width: 335px;
+    height: 203px;
+    display: flex;
+    flex-wrap: wrap; 
+    align-items: center;
+}
+.seats button {
+    width: 26px;
+    height: 25px;
+    margin-left: 7px;
+    margin-top: 19px;
+}
+
+.seat-true {
+    width: 24px;
+    height: 24px;
+    background: #C3CFD9;
+    border: 1px solid #7B8B99;
+    box-sizing: border-box;
+    border-radius: 17px;
+    border: none;
+}
+
+.seat-false {
+    width: 24px;
+    height: 24px;
+    background: #FBE192;
+    border: 1px solid #F7C52B;
+    box-sizing: border-box;
+    border-radius: 17px;
+    border: none;
+}
+
+.seat-selected {
+    width: 25px;
+    height: 25px;
+    background: #8DD7CF;
+    border: 1px solid #1AAE9E;
+    box-sizing: border-box;
+    border-radius: 17px;
+    border: none;
+}
+
+.legenda {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 32px;
+    width: 375px;
+}
+
+.legenda div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.legenda p {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 13px;
+    line-height: 15px;
     display: flex;
     align-items: center;
-    text-align: center;
-    letter-spacing: 0.04em;
+    letter-spacing: -0.013em;
+    color: #4E5A65;
+}
+
+p {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
     color: #293845;
+}
+
+.infos {
+    margin-top: 42px;
+}
+
+.infos .cpf {
+    margin-top: 10px;
+}
+
+input {
+    width: 327px;
+    height: 51px;
+    background: #FFFFFF;
+    border: 1px solid #D5D5D5;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-finish {
+    width: 225px;
+    height: 42px;
+    margin-top: 57px;
+    margin-bottom: 20px;
+    background: #E8833A;
+    border-radius: 3px;
+    border: none;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
 }
