@@ -130,3 +130,15 @@ input {
     color: #FFFFFF;
     cursor: pointer;
 }
+
+input::placeholder {
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    margin-left: 16px;
+    display: flex;
+    align-items: center;
+    color: #AFAFAF;
+}

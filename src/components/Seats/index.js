@@ -17,12 +17,10 @@ function Seats() {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${sessionId}/seats`);
 
         promise.then((response) => {
-            console.log(response.data);
             setSession(response.data);
             setSeats(response.data.seats)
         });
         promise.catch(error => {
-            console.log(error.response)
         });
     }, [sessionId]);
 
@@ -34,7 +32,7 @@ function Seats() {
                     <Seat
                         key={seat.id}
                         id={seat.id}
-                        name={seat.id}
+                        name={seat.name}
                         isAvailable={seat.isAvailable}    
                         statusResult={statusResult}
                         setStatusResult={setStatusResult}
@@ -56,7 +54,7 @@ function Seats() {
         (<p>Carregando...</p>)
 }
 
-function Seat({ id, name, isAvailable,  statusResult, setStatusResult }) {
+function Seat({ id, isAvailable,  statusResult, setStatusResult, name }) {
 
     const [selected, setSelected] = useState(false);
 
@@ -64,14 +62,14 @@ function Seat({ id, name, isAvailable,  statusResult, setStatusResult }) {
         if (selected === false) {
             return <button className='seat-true' key={id} onClick={() => {
                 setSelected(true);
-                setStatusResult([...statusResult, name])
+                setStatusResult([...statusResult, id])
             }
             }>{name}</button>
 
         } else {
             return <button className='seat-selected' key={id} onClick={() => {
                 setSelected(false)
-                setStatusResult(statusResult.splice(statusResult.indexOf(name), 1))
+                setStatusResult(statusResult.splice(statusResult.indexOf(id), 1))
                 setStatusResult([...statusResult]);
             }
             }>{name}</button>
@@ -101,33 +99,28 @@ function LabelSeats() {
     );
 }
 
-function Inputs(statusResult, session) {
+function Inputs(props) {
+
+    const {statusResult, session} = props;
 
     const [dados, setDados] = useState({ids: [], nome: "", cpf: ""})
     const navigate = useNavigate();
-
-    console.log("status",statusResult)
-
-
+    
     function sendInfos(e) {
         e.preventDefault();
-        console.log("statusresult", statusResult)
-        console.log("dados", dados)
 
-        const promise = axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many", {
-            ids: [statusResult.statusResult],
+        const obj = {
+            ids: statusResult,
             nome: dados.nome,
             cpf: dados.cpf,
-          })
+          }
+
+        const promise = axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many", obj )
         promise.then(response => {
-            
-            console.log("sucesso",response)
-            navigate('/sucesso', { state: { session, dados }});
+            navigate('/sucesso', { state: { session, obj }});
         });
         promise.catch(error => {
-            console.log(error)
             alert("Deu algum erro...");
-            console.log("dados", dados)
         })
     }
 
@@ -136,7 +129,7 @@ function Inputs(statusResult, session) {
 
             <div className='infos'>
                 <div className='name'>
-                    <label for='nome'>Nome do comprador:</label>
+                    <label htmlfor='nome'>Nome do comprador:</label>
                     <input
                         type='text'
                         placeholder='Digite seu nome...'
@@ -149,7 +142,7 @@ function Inputs(statusResult, session) {
                 </div>
 
                 <div className='cpf'>
-                    <label for='cpf'>CPF do comprador:</label>
+                    <label htmlfor='cpf'>CPF do comprador:</label>
                     <input
                         type='text'
                         placeholder='Digite seu CPF...'

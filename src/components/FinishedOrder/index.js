@@ -6,13 +6,18 @@ import './style.css'
 function FinishedOrder() {
 
     const location = useLocation();
+
+    function maskCPF(cpf) {
+        return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g, '$1.$2.$3-$4');
+    }
+    
     const {
-      session: {
-        movie: { title },
-        day: { date },
-        name,
-      },
-     dados: { ids, nome, cpf },
+
+        session: { movie: { title },
+            day: { date },
+            name, id }
+        ,
+        obj: { ids, nome, cpf },
     } = location.state;
 
     return (
@@ -26,14 +31,14 @@ function FinishedOrder() {
                 </div>
                 <div className='ticket'>
                     <h2>Ingressos</h2>
-                    {ids.map(id => <p>Assento {id}</p>)}
+                    {ids.map(id => <p key={id}>Assento {id}</p>)}
                 </div>
                 <div className='client'>
                     <h2>Comprador</h2>
                     <p>{nome}</p>
-                    <p>{cpf}</p>
+                    <p>{maskCPF(cpf)}</p>
                 </div>
-                <Link to='/'><button className='btn-finish'>Voltar pra Home</button></Link>
+                <Link to='/'><button className='btn-finish' style={{ textDecoration: 'none' }}>Voltar pra Home</button></Link>
             </div>
         </div>
     );
