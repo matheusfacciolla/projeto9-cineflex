@@ -1,4 +1,4 @@
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -12,8 +12,6 @@ function Seats() {
     const [session, setSession] = useState({});
     const [seats, setSeats] = useState([]);
     const [statusResult, setStatusResult] = useState([]);
-
-    console.log("array", statusResult)
 
     useEffect(() => {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${sessionId}/seats`);
@@ -46,7 +44,8 @@ function Seats() {
             <LabelSeats />
             <Inputs id={seats.id}
                     name={seats.id} 
-                    statusResult={statusResult}/>
+                    statusResult={statusResult}
+                    session={session}/>
 
             <Footer filmId={session.movie.id}
                     day={session.day.weekday}
@@ -102,22 +101,33 @@ function LabelSeats() {
     );
 }
 
-function Inputs(statusResult) {
+function Inputs(statusResult, session) {
 
-    const [dados, setDados] = useState({ids: statusResult, nome: "", cpf: ""})
+    const [dados, setDados] = useState({ids: [], nome: "", cpf: ""})
+    const navigate = useNavigate();
+
+    console.log("status",statusResult)
+
 
     function sendInfos(e) {
         e.preventDefault();
-        console.log("evento", e)
-        console.log("statusresult", statusResult.statusResult)
+        console.log("statusresult", statusResult)
         console.log("dados", dados)
 
-        const promise = axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many", dados)
+        const promise = axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many", {
+            ids: [statusResult.statusResult],
+            nome: dados.nome,
+            cpf: dados.cpf,
+          })
         promise.then(response => {
-            Navigate('/sucesso');
+            
+            console.log("sucesso",response)
+            navigate('/sucesso', { state: { session, dados }});
         });
         promise.catch(error => {
+            console.log(error)
             alert("Deu algum erro...");
+            console.log("dados", dados)
         })
     }
 

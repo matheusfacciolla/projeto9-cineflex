@@ -128,4 +128,5 @@ input {
     justify-content: center;
     letter-spacing: 0.04em;
     color: #FFFFFF;
+    cursor: pointer;
 }
