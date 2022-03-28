@@ -10,12 +10,12 @@ function FinishedOrder() {
     function maskCPF(cpf) {
         return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g, '$1.$2.$3-$4');
     }
-    
+
     const {
 
         session: { movie: { title },
             day: { date },
-            name, id }
+            name }
         ,
         obj: { ids, nome, cpf },
     } = location.state;
@@ -38,7 +38,9 @@ function FinishedOrder() {
                     <p>{nome}</p>
                     <p>{maskCPF(cpf)}</p>
                 </div>
-                <Link to='/'><button className='btn-finish' style={{ textDecoration: 'none' }}>Voltar pra Home</button></Link>
+            </div>
+            <div className='btn-wrap'>
+                <Link to='/' style={{ textDecoration: 'none' }}><button className='btn-finish'>Voltar pra Home</button></Link>
             </div>
         </div>
     );

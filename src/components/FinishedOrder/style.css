@@ -22,8 +22,20 @@
     margin-left: 30px;
 }
 
+.FinishedOrder .film-session {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.FinishedOrder .ticket {
+    margin-bottom: 40px;
+}
+
+.FinishedOrder .client {
+    margin-bottom: 60px;
+}
+
 .FinishedOrder h2 {
-    margin-top: 50px;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
@@ -45,6 +57,12 @@
     color: #293845;
 }
 
+.btn-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 button .btn {
     width: 225px;
     height: 42px;
@@ -52,4 +70,3 @@ button .btn {
     justify-content: center;
     align-items: center;
 }
-

@@ -1,0 +1,25 @@
+.btn-goBack {
+    position: fixed;
+    z-index: 2;
+    left:0;
+}
+
+.btn-goBack button {
+    width: 86px;
+    height: 30px;
+    margin-top: 4px;
+    margin-left: 4px;
+    border: none;
+    border-radius: 3px;
+    background-color: #E8833A;
+    font-family: 'Roboto';
+    color:white;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.02em;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #9EADBA;
+}

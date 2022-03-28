@@ -13,11 +13,10 @@ function Film() {
 
         promise.then((response) => {
             const { data } = response;
-            console.log(data)
             setFilms(data);
         });
         promise.catch(error => {
-            console.log(error.response)
+            alert("Deu algum erro...");
         });
     }, []);
 
@@ -38,8 +37,8 @@ function Film() {
             </div>
         </main>
     )
-    :
-    (<p>Carregando...</p>)
+        :
+        (<p>Carregando...</p>)
 }
 
 export default Film;

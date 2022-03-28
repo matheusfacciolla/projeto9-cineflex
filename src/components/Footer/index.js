@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import './style.css'
 
-function Footer({filmId, day, showTime}) {
+function Footer({ filmId, day, showTime }) {
     const [footer, setFooter] = useState({})
 
     useEffect(() => {
@@ -23,7 +23,7 @@ function Footer({filmId, day, showTime}) {
             </div>
             <div className="footer-date">
                 <p>{footer.title}</p>
-                <p>{day} {showTime}</p>
+                {day ? <p>{day} - {showTime}</p> : <></>}
             </div>
         </div>
     );

@@ -9,15 +9,17 @@ import FinishedOrder from '../FinishedOrder';
 function App() {
 
     return (
-        <BrowserRouter>
-            <Header />
-            <Routes>
-                <Route path='/' element={<Film />} />
-                <Route path='/filme/:filmId' element={<Schedule />} />
-                <Route path='/sessao/:sessionId' element={<Seats />} />
-                <Route path='/sucesso' element={<FinishedOrder />} />
-            </Routes>
-        </BrowserRouter>
+        <>
+            <BrowserRouter>
+                <Header />
+                <Routes>
+                    <Route path='/' element={<Film />} />
+                    <Route path='/filme/:filmId' element={<Schedule />} />
+                    <Route path='/sessao/:sessionId' element={<Seats />} />
+                    <Route path='/sucesso' element={<FinishedOrder />} />
+                </Routes>
+            </BrowserRouter>
+        </>
     );
 }
 

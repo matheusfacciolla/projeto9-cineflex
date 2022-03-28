@@ -15,11 +15,10 @@ function Schedule() {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${filmId}/showtimes`);
 
         promise.then((response) => {
-            console.log(response.data.days);
             setSchedules(response.data.days);
         });
         promise.catch(error => {
-            console.log(error.response)
+            alert("Deu algum erro...");
         });
     }, [filmId]);
 
@@ -53,8 +52,8 @@ function Schedule() {
             </div>
         </main>
     )
-    :
-    (<p>Carregando...</p>)
+        :
+        (<p>Carregando...</p>)
 }
 
 export default Schedule;
