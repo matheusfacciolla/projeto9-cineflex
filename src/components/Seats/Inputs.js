@@ -109,12 +109,14 @@ const InfosContainer = styled.div `
         display: flex;
         justify-content: center;
         align-items: center;
+        text-align: center;
     }
 
     .btn-finish {
         width: 225px;
         height: 42px;
         margin-top: 57px;
+        margin-bottom: 30px;
         background: #E8833A;
         border-radius: 3px;
         border: none;
@@ -123,6 +125,7 @@ const InfosContainer = styled.div `
         font-weight: 400;
         font-size: 18px;
         line-height: 21px;
+        text-align: center;
         display: flex;
         align-items: center;
         justify-content: center;

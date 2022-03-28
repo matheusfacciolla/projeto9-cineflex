@@ -69,6 +69,7 @@ const MainContainer = styled.main`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 117px;
 
     h2 {
         width: 374px;

@@ -108,11 +108,13 @@ const OrderBtn = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 
     button {
         margin-top: 10px;
         width: 225px;
         height: 42px;
+        margin-bottom: 190px;
         background: #E8833A;
         border-radius: 3px;
         border: none;
