@@ -2,6 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 
+import styled from 'styled-components';
+
 function Inputs(props) {
 
     const { statusResult, session } = props;
@@ -33,7 +35,7 @@ function Inputs(props) {
     return (
         <form onSubmit={sendInfos}>
 
-            <div className='infos'>
+            <InfosContainer>
                 <div className='name'>
                     <label htmlFor='nome'>Nome do comprador:</label>
                     <input
@@ -50,7 +52,7 @@ function Inputs(props) {
                 <div className='cpf'>
                     <label htmlFor='cpf'>CPF do comprador:</label>
                     <input
-                        type='text'
+                        type='number'
                         placeholder='Digite seu CPF...'
                         name='cpf'
                         id='cpf'
@@ -65,9 +67,69 @@ function Inputs(props) {
                 <div className='btn'>
                     <button type='submit' className='btn-finish'>Reservar assento(s)</button>
                 </div>
-            </div>
+            </InfosContainer>
         </form>
     );
 }
+
+const InfosContainer = styled.div `
+    margin-top: 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 24px;
+
+    .cpf {
+        margin-top: 10px;
+    }
+
+    input {
+        width: 327px;
+        height: 51px;
+        background: #FFFFFF;
+        border: 1px solid #D5D5D5;
+        box-sizing: border-box;
+        border-radius: 3px;
+    }
+
+    input::placeholder {
+        font-family: 'Roboto';
+        font-style: italic;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+        margin-left: 16px;
+        display: flex;
+        align-items: center;
+        color: #AFAFAF;
+    }
+
+    .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn-finish {
+        width: 225px;
+        height: 42px;
+        margin-top: 57px;
+        background: #E8833A;
+        border-radius: 3px;
+        border: none;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: 0.04em;
+        color: #FFFFFF;
+        cursor: pointer;
+    }
+`;
 
 export default Inputs;
