@@ -12,10 +12,9 @@ function FinishedOrder() {
     }
 
     const {
-
         session: { movie: { title },
-            day: { date },
-            name }
+            day: { date }, name
+        }
         ,
         obj: { ids, nome, cpf },
     } = location.state;
@@ -31,7 +30,7 @@ function FinishedOrder() {
                 </div>
                 <div className='ticket'>
                     <h2>Ingressos</h2>
-                    {ids.map(id => <p key={id}>Assento {id}</p>)}
+                    {ids.map(id => <p key={id}>Assento {id % 50 === 0 ? 50 : id % 50}</p>)}
                 </div>
                 <div className='client'>
                     <h2>Comprador</h2>
@@ -46,7 +45,7 @@ function FinishedOrder() {
     );
 }
 
-const OrderContainer = styled.div `
+const OrderContainer = styled.div`
     margin-top: 67px;
     height: 100%;
 
@@ -66,7 +65,7 @@ const OrderContainer = styled.div `
     }  
 `;
 
-const OrderWrap = styled.div `
+const OrderWrap = styled.div`
     margin-left: 30px;
 
     .film-session {
@@ -105,7 +104,7 @@ const OrderWrap = styled.div `
     }
 `;
 
-const OrderBtn = styled.div `
+const OrderBtn = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;

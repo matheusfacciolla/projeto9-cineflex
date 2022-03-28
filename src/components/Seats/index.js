@@ -44,21 +44,24 @@ function Seats() {
             </SeatsContainer>
 
             <LabelSeats />
-            <Inputs id={seats.id}
-                name={seats.id}
+            <Inputs
+                id={seats.id}
                 statusResult={statusResult}
-                session={session} />
+                session={session}
+            />
 
-            <Footer filmId={session.movie.id}
+            <Footer
+                filmId={session.movie.id}
                 day={session.day.weekday}
-                showTime={session.name} />
+                showTime={session.name}
+            />
         </MainContainer>
     )
         :
         (<p>Carregando...</p>)
 }
 
-const MainContainer = styled.main `
+const MainContainer = styled.main`
     width: 375px;
     height: 100%;
     margin-top: 67px;
@@ -84,7 +87,7 @@ const MainContainer = styled.main `
     }
 `;
 
-const SeatsContainer = styled.div `
+const SeatsContainer = styled.div`
     width: 335px;
     height: 203px;
     display: flex;
